@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+	<p id="print"></p>
+
+</body> 
+<script>
+	
+
+	function chToWords (chapter){
+
+		var sentences = chapter.split('.');
+		var words = []; 
+
+		for (i=0; i<sentences.length; i++){
+			var x = sentences[i].trim();
+			words.push(x.split(' '));
+			words.push('.');
+		};
+
+		return words;
+	}
+
+
+	function wordsToLinks (words){
+
+		var links = []; 
+
+		for (i=0; i<words.length; i++){
+
+			var eachLine = words[i];
+			for (x=0; x<eachLine.length; x++){
+
+				var y = eachLine[x];
+
+				if (y== '.' || y == '—' || y == '«' || y == '»' ){
+
+					var z = y;
+				} else {
+
+					if (y.endsWith(',')){
+
+						y = y.slice(0,-1);
+						var z = '<a https://realscottpilgrim.github.io/hrafnkel//gloss.htm#'+y+'" target="gloss">'+y+',</a>'; // this has a comma at the end, after the </a>
+					} else if (y.endsWith(';')){
+
+						y = y.slice(0,-1);
+						var z = '<a https://realscottpilgrim.github.io/hrafnkel//gloss.htm#'+y+'" target="gloss">'+y+';</a>'; // this has a semi colon at the end, after the </a>
+
+					} else {
+
+						var z = '<a https://realscottpilgrim.github.io/hrafnkel//gloss.htm#'+y+'" target="gloss">'+y+'</a>';
+
+					};
+
+				};
+
+				links.push(z);
+			};
+		};
+
+		return links;
+	}; 
+
+	function returnHyperlink (chapter){
+
+		words = chToWords(chapter);
+		hyperlinks = wordsToLinks(words);
+		hyperlinks.forEach(function(entry) {
+			document.writeln(entry);
+		});
+	};
+
+
+
+	var c1 = ""
+
+	var c2 = "";
+	
+	var c3 = "";
+
+	var c4 = ""
+
+	var c5 = "";
+
+	var c6 = "";
+
+	var c7 = "";
+
+	var c8 = "";
+
+	var c9 = "";
+
+	var c10 = "";
+
+
+	
+	
+	document.writeln('CHAPTER');
+	c1 = returnHyperlink(c1);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c2 = returnHyperlink(c2);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c3 = returnHyperlink(c3);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c4 = returnHyperlink(c4);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c5 = returnHyperlink(c5);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c6 = returnHyperlink(c6);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c7 = returnHyperlink(c7);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c8 = returnHyperlink(c8);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c9 = returnHyperlink(c9);
+	document.write ("<br><br>");
+
+	document.writeln('CHAPTER');
+	c10 = returnHyperlink(c10);
+	document.write ("<br><br>");
+
+	
+
+
+//	chapter1.forEach(function(entry) {
+//		console.log(entry);
+		// document.getElementById("print").innerHTML+= entry; //how do i make this print as text and not as it is 
+//		document.writeln(entry);
+//	});
+
+
+
+
+</script>
+
+
+</html>
+
+
+
+
